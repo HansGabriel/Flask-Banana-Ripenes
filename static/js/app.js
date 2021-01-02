@@ -3,7 +3,8 @@ console.log('javascript starting')
 $(function() {
     $('#submit').click(function() {
         event.preventDefault();
-        var form_data = new FormData($('#uploadform')[0]);
+        const img = $('#uploadform')[0]
+        var form_data = new FormData(img);
         $.ajax({
             type: 'POST',
             url: '/uploadajax',
@@ -18,6 +19,8 @@ $(function() {
             console.log('Success!');
             $("#resultFilename").text(data['name']);
             $("#resultClassType").text(data['classType']);
+            const imgPath = '../static/images/' + data['name']
+            $("#picture").attr("src",imgPath);
         }).fail(function(data){
             alert('error!');
         });

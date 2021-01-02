@@ -6,15 +6,16 @@
         <title>Document</title>
         <link rel="stylesheet" href="../static/css/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../static/js/app.js"></script>
     </head>
     <body>
         <form id="uploadform" method="post" enctype="multipart/form-data">
             <label for="file">Select a file</label>
-            <input name="file" type="file">
+            <input name="file" type="file" id="imgInput">
             <button id="submit" type="button">Upload</button>
         </form>
+        <img id="picture" src="../static/images/no_picture.jpg" alt="No Picture">
         <p>Result Filename:&nbsp;<span id="resultFilename"> here</span></p>
         <p>Result Class:&nbsp;<span id="resultClassType"> here</span></p>
     </body>
-    <script src="../static/js/app.js"></script>
 </html>

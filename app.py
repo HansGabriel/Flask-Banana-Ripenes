@@ -22,7 +22,7 @@ def upldfile():
     if request.method == 'POST':
         files = request.files['file']
         filename = secure_filename(files.filename)
-        updir = os.path.join(basedir, 'upload/')
+        updir = os.path.join(basedir, 'static/images/')
         files.save(os.path.join(updir, filename))
         file_dir = f'upload/{filename}'
         print(file_dir)
