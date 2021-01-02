@@ -17,6 +17,7 @@ $(function() {
             console.log(jqXHR);
             console.log('Success!');
             $("#resultFilename").text(data['name']);
+            $("#resultClassType").text(data['classType']);
         }).fail(function(data){
             alert('error!');
         });
