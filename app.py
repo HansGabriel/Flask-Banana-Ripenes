@@ -17,9 +17,14 @@ def getFileExtension(file):
 def hello():
     return render_template('main.html')
 
+# @app.route('/header')
+# def header():
+#     return render_template('header.html')
+
 @app.route('/uploadajax', methods=['POST'])
 def upldfile():
     if request.method == 'POST':
+        print(request)
         files = request.files['file']
         filename = secure_filename(files.filename)
         updir = os.path.join(basedir, 'static/images/')

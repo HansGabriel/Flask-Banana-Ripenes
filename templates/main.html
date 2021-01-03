@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -18,4 +18,42 @@
         <p>Result Filename:&nbsp;<span id="resultFilename"> here</span></p>
         <p>Result Class:&nbsp;<span id="resultClassType"> here</span></p>
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="../static/js/design.js"></script>
+  <script src="../static/js/app.js"></script>
+</head>
+<body>
+  <form id="uploadform" method="post" enctype="multipart/form-data">
+    <!-- <input name="file" type="file" id="imgInput"> -->
+    <input class="file-upload-s" onchange="readURL(this);" type='file' id="imgInput" name="file"/>
+  <div class="file-upload">
+    <!-- <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button> -->
+
+    <div class="image-upload-wrap">
+      <!-- <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" id="imgInput" /> -->
+      <div class="drag-text">
+        <h3>Drag and drop a file or select add Image</h3>
+      </div>
+    </div>
+    <div class="file-upload-content">
+      <img class="file-upload-image" src="#" alt="your image" />
+      <div class="image-title-wrap">
+        <button type="submit" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+      </div>
+    </div>
+  </div>
+    <button class="file-upload-btn" type="button" id="submit">Classify Banana</button>
+  </form>
+  <p>Result Filename:&nbsp;<span id="resultFilename"> here</span></p>
+  <p>Result Class:&nbsp;<span id="resultClassType"> here</span></p>
+</body>
 </html>
