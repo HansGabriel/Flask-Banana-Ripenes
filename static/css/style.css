@@ -114,3 +114,18 @@ body {
     border: 0;
     transition: all .2s ease;
   }
+
+  .result {
+    width: 100%;
+    margin-top: 50px;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }

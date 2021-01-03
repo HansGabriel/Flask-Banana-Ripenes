@@ -17,19 +17,15 @@ def getFileExtension(file):
 def hello():
     return render_template('main.html')
 
-# @app.route('/header')
-# def header():
-#     return render_template('header.html')
-
-@app.route('/uploadajax', methods=['POST'])
+@app.route('/uploadajax', methods=['GET', 'POST'])
 def upldfile():
     if request.method == 'POST':
-        print(request)
         files = request.files['file']
+        print(files)
         filename = secure_filename(files.filename)
         updir = os.path.join(basedir, 'static/images/')
         files.save(os.path.join(updir, filename))
-        file_dir = f'upload/{filename}'
+        file_dir = f'static/images/{filename}'
         print(file_dir)
         result = classifyBanana(file_dir)
         return jsonify(name=filename, classType = result)

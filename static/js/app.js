@@ -4,7 +4,6 @@ $(function() {
     $('#submit').click(function() {
         event.preventDefault();
         const img = $('#uploadform')[0]
-        // const img = $('#imgInput').files[0]
         var form_data = new FormData(img);
         console.log(form_data)
         $.ajax({
@@ -19,7 +18,6 @@ $(function() {
             console.log(textStatus);
             console.log(jqXHR);
             console.log('Success!');
-            $("#resultFilename").text(data['name']);
             $("#resultClassType").text(data['classType']);
         }).fail(function(data){
             alert('error!');
