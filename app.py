@@ -10,10 +10,10 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
 def getFileExtension(file):
-    return file.filename.split('.')[1]
+    return file.split('.')[1]
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def hello():
     return render_template('main.html')
 
@@ -21,11 +21,13 @@ def hello():
 def upldfile():
     if request.method == 'POST':
         files = request.files['file']
-        print(files)
         filename = secure_filename(files.filename)
+        ext = getFileExtension(filename)
+        print(ext)
+        name = 'img.jpg' if ext == 'jpg' else 'img.png'
         updir = os.path.join(basedir, 'static/images/')
-        files.save(os.path.join(updir, filename))
-        file_dir = f'static/images/{filename}'
+        files.save(os.path.join(updir, name))
+        file_dir = f'static/images/{name}'
         print(file_dir)
         result = classifyBanana(file_dir)
         return jsonify(name=filename, classType = result)
